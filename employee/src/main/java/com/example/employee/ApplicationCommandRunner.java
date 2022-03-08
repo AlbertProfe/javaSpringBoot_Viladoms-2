@@ -26,6 +26,7 @@ public class ApplicationCommandRunner implements CommandLineRunner {
 		logger.info("Data creation Employee started...");
 		employeeRepository.save(new Employee("Joan", "Jones", 25));
 		employeeRepository.save(new Employee("Anna", "Williams", 28));
+		employeeRepository.save(new Employee("Pere", "Williams", 28));
        
         logger.info("Data creation Employee complete...");
         
@@ -33,6 +34,17 @@ public class ApplicationCommandRunner implements CommandLineRunner {
         
         logger.info("Data Employee query get " + employees);
         
+        
+        logger.info("employees count: " + employeeRepository.count());
+        
+        Employee employeeFound = employeeRepository.findItemByName("Pere");
+        logger.info("employees Pere" + employeeFound);
+        employeeRepository.deleteById( employeeFound.getId() );
+        
+        
+        employeeRepository.deleteById("62277a52b0dcbc035e1f3e2c");
+        
+       // logger.info
         
      
 	}	
