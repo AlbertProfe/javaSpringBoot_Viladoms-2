@@ -3,6 +3,7 @@ package com.example.employee;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+
 @Document("employee")
 public class Employee {
 
@@ -12,7 +13,7 @@ public class Employee {
         private String surname;
         private int age;
         
-        public Employee () {}
+        public Employee() {}
         
         public Employee(String id, String name, String surname, int age) {
             super();
