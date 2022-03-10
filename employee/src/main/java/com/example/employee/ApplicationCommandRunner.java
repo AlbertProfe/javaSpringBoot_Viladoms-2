@@ -79,9 +79,12 @@ public class ApplicationCommandRunner implements CommandLineRunner {
         logger.info("duration delete all operation ... (ms)" + (startDelete.getTime() - finishDelete.getTime()));
          
         employeeRepository.save(new Employee("Teresa", "Williams", 58));
+        Timestamp startUpdate = new Timestamp(System.currentTimeMillis());
         employeeFound = employeeRepository.findItemByName("Teresa");
         employeeFound.setAge(59);
         employeeRepository.save(employeeFound);
+        Timestamp finishUpdate = new Timestamp(System.currentTimeMillis());
+        logger.info("duration update operation ... (ms)" + (startUpdate.getTime() - finishUpdate.getTime()));
         employeeFound = employeeRepository.findItemByName("Teresa");
         logger.info("update Teresa from age 58 to 59 ..." + employeeFound);
          
