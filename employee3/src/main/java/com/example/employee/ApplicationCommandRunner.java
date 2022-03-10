@@ -35,20 +35,19 @@ public class ApplicationCommandRunner implements CommandLineRunner {
         logger.info("employees count: " + employeeService.count());
         
         //CRUD: find and delete operations
-        Employee employeeFound = employeeService.findItemByName("Silvia");
-        logger.info("employees Silvia" + employeeFound);
-        employeeService.deleteById( employeeFound.getId() );
+        //Employee employeeFound = employeeService.findItemByName("Silvia");
+        //logger.info("employees Silvia" + employeeFound);
+        //employeeService.deleteById( employeeFound.getId() );
        
-        employeeService.deleteById("62277a52b0dcbc035e1f3e2c");
-        employeeService.deleteAll();
+        //employeeService.deleteById("62277a52b0dcbc035e1f3e2c");
+        //employeeService.deleteAll();
         
         //CRUD: update operation
         employeeService.save(new Employee("Teresa", "Williams", 58));
-        employeeFound = employeeService.findItemByName("Teresa");
-        employeeFound.setAge(59);
-        employeeService.save(employeeFound);
-        employeeFound = employeeService.findItemByName("Teresa");
-        logger.info("update Teresa from age 58 to 59 ..." + employeeFound);
+        //employeeFound.setAge(59);
+        //employeeService.save(employeeFound);
+        //employeeFound = employeeService.findItemByName("Teresa");
+        //logger.info("update Teresa from age 58 to 59 ..." + employeeFound);
          
 	}	
 
