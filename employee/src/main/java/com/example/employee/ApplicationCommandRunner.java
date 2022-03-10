@@ -23,7 +23,6 @@ public class ApplicationCommandRunner implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 
 		logger.info("Welcome to the runner from commandLineRunner to test JPA mapping 1:n");
-
 		logger.info("Data creation Employee started...");
 		
 		Timestamp startCreate20 = new Timestamp(System.currentTimeMillis());
@@ -50,14 +49,10 @@ public class ApplicationCommandRunner implements CommandLineRunner {
 		Timestamp finishCrete20 = new Timestamp(System.currentTimeMillis());
 		
 		logger.info("duration create 20 operation ... (ms)" + (startCreate20.getTime() - finishCrete20.getTime()));
-       
         logger.info("Data creation Employee complete...");
         
         List<Employee> employees = employeeRepository.findAll();
-        
         logger.info("Data Employee query get " + employees);
-        
-        
         logger.info("employees count: " + employeeRepository.count());
         
         Timestamp startCreate = new Timestamp(System.currentTimeMillis());
@@ -68,6 +63,7 @@ public class ApplicationCommandRunner implements CommandLineRunner {
         Employee employeeFound = employeeRepository.findItemByName("Silvia");
         Timestamp finishFind = new Timestamp(System.currentTimeMillis());
         logger.info("employees Pere" + employeeFound);
+        
         employeeRepository.deleteById( employeeFound.getId() );
         Timestamp deleteOperation = new Timestamp(System.currentTimeMillis());
         
