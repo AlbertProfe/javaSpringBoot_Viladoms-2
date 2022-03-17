@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.util.Base64;
 import java.util.Base64.Encoder;
 import java.util.Optional;
-
 import org.bson.types.Binary;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
