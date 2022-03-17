@@ -6,13 +6,21 @@ import org.springframework.data.mongodb.repository.Query;
 
 public interface EmployeeRepository extends MongoRepository<Employee, String> {
     
-    @Query("{name:'?0'}")
-    Employee findItemByName(String name);
+    //query with age greater than 50 => $gt is greater than and ?0 is the parameter that the query gets
+    @Query("{age: {$gt : ?0}}")
+    List<Employee> findItemByAge(int age);
     
-    @Query(value="{category:'?0'}", fields="{'name' : 1, 'age' : 1}")
-    List<Employee> findAll(String surname);
+    //query with surname ?0 => parameter given by funcition
+    @Query("{surname: ?0 }")
+    List<Employee> findItemBySurname(String surname);
     
+    
+    @Query("{age: {$gt : ?0} , surname: ?1 }")
+    List<Employee> findItemByAgeAndSurname(int age, String surname);
 
+    
+    @Query(value = "{age: {$gt : ?0}}", fields = "{'surname' : 0}" )
+    List<Employee> findItemByAgeWithootSuranme(int age);
 
     
 }
