@@ -21,14 +21,21 @@ public class ApplicationCommandRunner implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 
-		logger.info("Welcome to the runner from commandLineRunner to test JPA mapping 1:n");
+		logger.info("Welcome to the runner from commandLineRunner to test faker JAVA");
 		logger.info("Data creation Employee started...");
 		
 		Faker faker = new Faker();
 		
-		for (int i = 0; i <100; i++) {
+		for (int i = 1; i <101; i++) {
 		
-			System.out.println("Name: " + faker.name().firstName());
+			System.out.println(new Employee (
+					"EMP00" + i , 
+					faker.name().firstName(),  
+					faker.name().lastName(), 
+					faker.number().numberBetween(18, 65))
+					);
+			
+			
 		
 		}
 		
